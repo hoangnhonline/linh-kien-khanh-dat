@@ -245,9 +245,9 @@ class ProductController extends Controller
                         //var_dump(config('icho.upload_path').$image_url, config('icho.upload_path').$destionation);die;
                         File::move(config('icho.upload_path').$image_url, config('icho.upload_path').$destionation);
 
-                        Image::make(config('icho.upload_path').$destionation)->resize(170, null, function ($constraint) {
+                        Image::make(config('icho.upload_path').$destionation)->resize(150, null, function ($constraint) {
                                 $constraint->aspectRatio();
-                        })->crop(170, 128)->save(config('icho.upload_thumbs_path').$destionation);
+                        })->crop(150, 150)->save(config('icho.upload_thumbs_path').$destionation);
 
                         $imageArr['name'][] = $destionation;
 
