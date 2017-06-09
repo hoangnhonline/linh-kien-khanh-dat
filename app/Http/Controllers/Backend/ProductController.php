@@ -67,7 +67,7 @@ class ProductController extends Controller
 
         $query->leftJoin('product_img', 'product_img.id', '=','product.thumbnail_id'); 
         $query->join('loai_sp', 'product.loai_id', '=','loai_sp.id');
-        $query->join('cate', 'product.cate_id', '=','cate.id'); 
+        $query->leftJoin('cate', 'product.cate_id', '=','cate.id'); 
         if($is_hot == 1){
             $query->orderBy('product.display_order', 'asc'); 
         }        
