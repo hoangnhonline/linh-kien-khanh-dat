@@ -117,9 +117,9 @@
                  <p style="margin-top:10px">
                     
                     <b style="color:red">                  
-                    {{ number_format($item->price) }}
+                    {{ ($item->price) }}
                     </b> [ <b style="color:orange">                  
-                    {{ number_format($item->price_5) }}
+                    {{ ($item->price_5) }}
                     </b> ]
                     
                   </p>
