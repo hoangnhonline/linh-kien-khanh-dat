@@ -67,16 +67,16 @@
 			<div class="top-header">
 				<div class="container">
 					<div class="logo">
-						<a href="index.html">
-							<img alt="icho" src="{{ URL::asset('assets/images/logo.png') }}">
-							<h1 class="hide">icho.vn</h1>
+						<a href="{{ route('home') }}">							
+							<h1 style="color:#FFF" >LOGO</h1>
 						</a>
 					</div>
 					<div class="header-search-box">
-						<form action="" method="" class="mainsearch">
-							<input type="text" autocomplete="off" name="key" placeholder="Bạn mua gì hôm nay?" maxlength="50">
-							<button type="submit"><i class="fa fa-search"></i></button>
-						</form>
+						<form class="form-inline mainsearch"  method="GET" action="{{ route('search') }}">            
+			              <input type="text" autocomplete="off" name="keyword" placeholder="Bạn mua gì hôm nay?" maxlength="50" value="{{ isset($tu_khoa) ? $tu_khoa : "" }}">
+
+			              <button type="submit"><i class="fa fa-search"></i></button>
+			            </form>
 					</div>
 					<div class="header-contact">
 						<p>Tổng đài: <span class="hotline">1900 636 975</span> <span class="time_active">(7:30 - 22:00)</span></p>
@@ -120,13 +120,7 @@
 
 		<section class="container">
 			
-			<section class="block block-slider">
-				<ul class="owl-carousel owl-style2" data-nav="true" data-margin="0" data-items='1' data-autoplayTimeout="1000" data-autoplay="false" data-loop="true">
-					<li class="item"><a href="#" title=""><img src="{{ URL::asset('assets/images/banner/banner1.jpg') }}" alt=""></a></li>
-					<li class="item"><a href="#" title=""><img src="{{ URL::asset('assets/images/banner/banner2.jpg') }}" alt=""></a></li>
-					<li class="item"><a href="#" title=""><img src="{{ URL::asset('assets/images/banner/banner1.jpg') }}" alt=""></a></li>
-				</ul>
-			</section><!-- /slider -->
+			@yield('slider')
 
 			@yield('content')
 
@@ -182,7 +176,7 @@
 			</section><!-- /block-ftm -->
 			<section class="container-fluid block-ftb">
 				<div class="container">
-					<p>iCho.vn mở bán tại thành phố Hồ Chí Minh</p>
+					<p>Linh kiện khánh đạt mở bán tại thành phố Hồ Chí Minh</p>
 				</div>
 			</section><!-- /block-ftb -->
 		</footer><!-- /footer -->
@@ -204,5 +198,6 @@
 	<script src="{{ URL::asset('assets/vendor/sticky/jquery.sticky.js') }}"></script>
 	<!-- Js Common -->
 	<script src="{{ URL::asset('assets/js/common.js') }}"></script>
+	@yield('javascript_page')
 </body>
 </html>

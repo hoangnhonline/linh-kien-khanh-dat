@@ -1,6 +1,15 @@
 @extends('frontend.layout')
 @include('frontend.partials.meta')
 @section('content')
+<article class="block block-breadcrumb">
+	<ul class="breadcrumb">	
+		<li><a href="{{ route('home') }}" title="Trở về trang chủ">Trang chủ</a></li>
+		
+		<li><a href="{{ route('danh-muc', $rs->slug) }}" title="{{ $rs->name }}">{{ $rs->name }}</a></li>		
+		
+		<li class="active">{{ $rsCate->name }}</li>
+	</ul>
+</article><!-- /block-breadcrumb -->
 <section class="block-content">
 	<div class="block-common block-sale-products">
 		<p class="block-page-name">{!! $rs->name !!} / {!! $rsCate->name !!}</p>

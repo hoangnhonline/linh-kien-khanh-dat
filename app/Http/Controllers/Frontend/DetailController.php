@@ -5,20 +5,12 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Models\City;
 use App\Models\Product;
-use App\Models\District;
-use App\Models\Ward;
-use App\Models\Street;
-use App\Models\Project;
 use App\Models\LoaiSp;
 use App\Models\MetaData;
 use App\Models\ProductImg;
-use App\Models\Tag;
-use App\Models\TagObjects;
-use App\Models\Direction;
-use App\Models\PriceUnit;
-use App\Models\Articles;
+use App\Models\Cate;
+
 
 
 use Helper, File, Session, Auth, Image;
@@ -49,10 +41,12 @@ class DetailController extends Controller
             return redirect()->route('home');
         }
         $rsLoai = LoaiSp::find( $detail->loai_id );
-
+        $rsCate = (object) [];
+        if($detail->cate_id > 0){
+            $rsCate = Cate::find($detail->cate_id);
+        }
         $hinhArr = ProductImg::where('product_id', $detail->id)->get()->toArray();
-
-        $district_id = $detail->district_id;
+        
         if( $detail->meta_id > 0){
            $meta = MetaData::find( $detail->meta_id )->toArray();
            $seo['title'] = $meta['title'] != '' ? $meta['title'] : $detail->title;
@@ -65,14 +59,14 @@ class DetailController extends Controller
         if($detail->thumbnail_id > 0){
             $socialImage = ProductImg::find($detail->thumbnail_id)->image_url;
         }
-
         $otherList = Product::where('product.slug', '<>', '')                  
+                    ->where('product.loai_id', '<>', $detail->loai_id)
                     ->leftJoin('product_img', 'product_img.id', '=','product.thumbnail_id')            
-                    ->join('loai_sp', 'loai_sp.id', '=','product.loai_id')      
+                    ->join('loai_sp', 'loai_sp.id', '=','product.loai_id')
                     ->select('product_img.image_url as image_url', 'product.*', 'loai_sp.slug as slug_loai', 'loai_sp.name as ten_loai')
-                    ->where('product.id', '<>', $detail->id)
+                    ->where('product.id', '<>', $detail->id)                    
                     ->orderBy('product.id', 'desc')->limit(5)->get();
-        return view('frontend.detail.index', compact('detail', 'rsLoai', 'hinhArr', 'productArr', 'seo', 'socialImage', 'otherList', 'tagSelected' ));
+        return view('frontend.detail.index', compact('detail', 'rsLoai', 'hinhArr', 'productArr', 'seo', 'socialImage', 'otherList', 'tagSelected', 'rsCate' ));
     }
     public function tagDetail(Request $request){
         $slug = $request->slug;
