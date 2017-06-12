@@ -111,7 +111,7 @@
 								</ul>
 							</li>
 							@endforeach							
-							<li><a class="" href="contact.html">Báo giá bán sỉ</a></li>
+							<li><a class="" href="{{ route('si') }}">Báo giá bán sỉ</a></li>
 						</ul>
 					</div><!-- /.navbar-collapse -->
 		        </div>
