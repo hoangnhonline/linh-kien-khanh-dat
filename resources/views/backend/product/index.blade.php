@@ -116,10 +116,18 @@
                   <strong style="color:#337ab7;font-style:italic"> {{ $item->ten_loai }} / {{ $item->ten_cate }}</strong>
                  <p style="margin-top:10px">
                     
-                    <b style="color:red">                  
-                    {{ ($item->price) }}
+                    <b style="color:red">                                      
+                    @if(is_numeric($item->price))
+                      {!! number_format($item->price) !!}
+                    @else
+                      {!! $item->price !!}
+                    @endif
                     </b> [ <b style="color:orange">                  
-                    {{ ($item->price_5) }}
+                    @if(is_numeric($item->price_5))
+                      {!! number_format($item->price_5) !!}
+                    @else
+                      {!! $item->price_5 !!}
+                    @endif
                     </b> ]
                     
                   </p>

@@ -582,6 +582,7 @@ img {
   margin: 0 auto;
   max-height: 150px;
   margin-bottom: 10px;
+  min-height: 150px;
 }
 .products .pro-info {
   text-align: center;
@@ -595,6 +596,7 @@ img {
   margin-bottom: 10px;
   height: 36px;
   overflow: hidden;
+  max-height: 144px;
 }
 .products .price-products {
   height: 50px;
@@ -604,6 +606,7 @@ img {
   font-size: 14px;
   color: #ce0606;
   margin-bottom: 10px;
+  font-weight: bold
 }
 .products .pro-info .pro-sale {
   font-size: 14px;

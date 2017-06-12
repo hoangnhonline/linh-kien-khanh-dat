@@ -5,8 +5,7 @@ use Illuminate\Support\ServiceProvider;
 use Hash;
 use App\Models\Settings;
 use App\Models\LoaiSp;
-use App\Models\ArticlesCate;
-use App\Models\Articles;
+use App\Models\Cate;
 use App\Models\CustomLink;
 
 class ViewComposerServiceProvider extends ServiceProvider
@@ -39,18 +38,16 @@ class ViewComposerServiceProvider extends ServiceProvider
 	private function composerMenu()
 	{
 		
-		view()->composer( '*' , function( $view ){		
-			$banList = $thueList = [];	
+		view()->composer( '*' , function( $view ){				
 			
 	        $settingArr = Settings::whereRaw('1')->lists('value', 'name');
-	        $articleCate = ArticlesCate::orderBy('display_order', 'desc')->get();	     	        
-	        $tinRandom = Articles::whereRaw(1);
-	        if($tinRandom->count() > 0){
-	        	$tinRandom = $tinRandom->limit(5)->get();
-	        }
+	        $loaiSpList = LoaiSp::where('status', 1)->orderBy('display_order', 'asc')->get();
+	        foreach($loaiSpList as $loaiSp){
+	        	$cateList[$loaiSp->id] = Cate::where(['status' => 1, 'loai_id' => $loaiSp->id])->orderBy('display_order', 'asc')->get();
+	        }        
 	        
 
-			$view->with(['settingArr' => $settingArr, 'articleCate' => $articleCate]);
+			$view->with(['settingArr' => $settingArr, 'loaiSpList' => $loaiSpList, 'cateList' => $cateList]);
 			
 		});
 	}

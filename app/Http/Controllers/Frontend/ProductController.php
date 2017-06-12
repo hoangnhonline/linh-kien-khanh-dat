@@ -11,7 +11,7 @@ use App\Models\District;
 use App\Models\Ward;
 use App\Models\Street;
 use App\Models\Project;
-use App\Models\EstateType;
+use App\Models\LoaiSp;
 use App\Models\MetaData;
 use App\Models\Pages;
 use Helper, File, Session, Auth;
@@ -21,31 +21,42 @@ class ProductController extends Controller
 {
     public function cate(Request $request)
     {
-         $productArr = [];
         $slug = $request->slug;
-        $rs = EstateType::where('slug', $slug)->first();        
-        if($rs){//danh muc cha
-            $loai_sp_id = $rs->id;
+        if($slug == 'san-pham'){
+            $rs = (object) [];
+            $rs->name = 'Sản phẩm';
             
-            $query = Product::where('loai_sp_id', $loai_sp_id)               
+            $query = Product::where('product.status', 1)
+                ->leftJoin('product_img', 'product_img.id', '=','product.thumbnail_id') 
+                ->join('loai_sp', 'loai_sp.id', '=','product.loai_id')                
+                ->select('product_img.image_url as image_url', 'product.*', 'loai_sp.slug as slug_loai') 
+                ->orderBy('product.id', 'desc');
+                $productList  = $query->limit(36)->get();              
+            
+            
+            $seo['title'] = $seo['description'] = $seo['keywords'] = $rs->name;
+                                                              
+            return view('frontend.cate.parent', compact('productList', 'rs', 'socialImage', 'seo', 'loai_id'));
+        }
+        $rs = LoaiSp::where('slug', $slug)->first();        
+
+        if($rs){//danh muc cha
+            $loai_id = $rs->id;
+            
+            $query = Product::where('loai_id', $loai_id)               
                 ->where('product.status', 1)
                 ->leftJoin('product_img', 'product_img.id', '=','product.thumbnail_id') 
-                ->join('loai_sp', 'loai_sp.id', '=','product.loai_sp_id')                
-                ->select('product_img.image_url as image_urls', 'product.*', 'loai_sp.slug as slug_loai')              
-                ->where('product_img.image_url', '<>', '')
-                ->orderBy('product.is_hot', 'desc')
-                ->orderBy('product.cart_status', 'asc')
+                ->join('loai_sp', 'loai_sp.id', '=','product.loai_id')                
+                ->select('product_img.image_url as image_url', 'product.*', 'loai_sp.slug as slug_loai') 
                 ->orderBy('product.id', 'desc');
-                $productList  = $query->limit(36)->get();
-                $productArr = $productList->toArray();
+                $productList  = $query->limit(36)->get();              
             
             if( $rs->meta_id > 0){
                $seo = MetaData::find( $rs->meta_id )->toArray();
             }else{
                 $seo['title'] = $seo['description'] = $seo['keywords'] = $rs->name;
-            }            
-            $type = $rs->type;                                     
-            return view('frontend.cate.parent', compact('productList','productArr', 'rs', 'hoverInfo', 'socialImage', 'seo', 'type', 'loai_sp_id'));
+            }                                                   
+            return view('frontend.cate.parent', compact('productList', 'rs', 'socialImage', 'seo', 'loai_id'));
         }else{
             $detailPage = Pages::where('slug', $slug)->first();
             if(!$detailPage){
@@ -57,140 +68,22 @@ class ProductController extends Controller
             return view('frontend.pages.index', compact('detailPage', 'seo'));    
         }
     }
-    public function ban(Request $request)
-    {
-        $productArr = [];
-
-        $query = Product::where('product.type', 1);
-        
-            $query->leftJoin('product_img', 'product_img.id', '=','product.thumbnail_id') 
-            ->join('loai_sp', 'loai_sp.id', '=','product.loai_sp_id')                
-            ->select('product_img.image_url as image_urls', 'product.*', 'loai_sp.slug as slug_loai')              
-            ->where('product_img.image_url', '<>', '')
-            ->orderBy('product.is_hot', 'desc')
-            ->orderBy('product.cart_status', 'asc')
-            ->orderBy('product.id', 'desc');
-            $productList  = $query->limit(36)->get();
-            $productArr = $productList->toArray();
-            
-            
-            $name = $seo['title'] = $seo['description'] = $seo['keywords'] = 'Nhà đất bán';
-             $type = 1;
-            return view('frontend.cate.type', compact('productList','productArr', 'socialImage', 'seo', 'name', 'type'));
-        
-    }
-    public function choThue(Request $request)
-    {
-        $productArr = [];
-
-        $query = Product::where('product.type', 2);
-        
-        $query->leftJoin('product_img', 'product_img.id', '=','product.thumbnail_id') 
-        ->join('loai_sp', 'loai_sp.id', '=','product.loai_sp_id')                
-        ->select('product_img.image_url as image_urls', 'product.*', 'loai_sp.slug as slug_loai')              
-        ->where('product_img.image_url', '<>', '')
-        ->orderBy('product.is_hot', 'desc')
-        ->orderBy('product.cart_status', 'asc')
-        ->orderBy('product.id', 'desc');
-        $productList  = $query->limit(36)->get();
-        $productArr = $productList->toArray();
-        
-        
-        $name = $seo['title'] = $seo['description'] = $seo['keywords'] = 'Nhà đất cho thuê';
-        $type = 2;
-        return view('frontend.cate.type', compact('productList','productArr', 'socialImage', 'seo', 'name', 'type'));
-        
-    }
+    
     public function search(Request $request)
-    {
-        $productArr = [];
-       
-            $loai_sp_id = $request->loai_sp_id;
-            $type = $request->type;
-            $district_id = $request->district_id;
-            $ward_id = $request->ward_id;
-            $project_id = $request->project_id;
-            $price_id = $request->price_id;
-            $area_id = $request->area_id;
-            $street_id = $request->street_id;
-            $no_room = $request->no_room;
-            $direction_id = $request->direction_id;
-
-            $query = Product::where('loai_sp_id', $loai_sp_id);
-            if($district_id){
-                $query->where('district_id', $district_id);
-            }
-            if($ward_id){
-                $query->where('ward_id', $ward_id);
-            }
-            if($project_id){
-                $query->where('project_id', $project_id);
-            }
-            if($price_id){
-                $query->where('price_id', $price_id);
-            }
-            if($area_id){
-                $query->where('area_id', $area_id);
-            }
-            if($street_id){
-                $query->where('street_id', $street_id);
-            }
-            if($direction_id){
-                $query->where('direction_id', $direction_id);
-            }
-                $query->leftJoin('product_img', 'product_img.id', '=','product.thumbnail_id') 
-                ->join('loai_sp', 'loai_sp.id', '=','product.loai_sp_id')                
-                ->select('product_img.image_url as image_urls', 'product.*', 'loai_sp.slug as slug_loai')              
-                ->where('product_img.image_url', '<>', '')
-                ->orderBy('product.is_hot', 'desc')
-                ->orderBy('product.cart_status', 'asc')
-                ->orderBy('product.id', 'desc');
-                $productList  = $query->limit(36)->get();
-                $productArr = $productList->toArray();
-            
-            
-            $seo['title'] = $seo['description'] = $seo['keywords'] = 'Tìm kiếm';
-            
-            return view('frontend.cate.search', compact('productList','productArr', 'socialImage', 'seo',
-            'type',
-            'loai_sp_id',
-            'street_id',
-            'ward_id',
-            'district_id',
-            'no_room',
-            'direction_id',
-            'area_id',
-            'project_id',
-            'price_id'
-                ));
+    {        
+        $tu_khoa = $request->keyword;       
         
+        $sql = Product::where('product.alias', 'LIKE', '%'.$tu_khoa.'%');            
+        
+         $sql->leftJoin('product_img', 'product_img.id', '=','product.thumbnail_id') 
+                ->join('loai_sp', 'loai_sp.id', '=','product.loai_id')                
+                ->select('product_img.image_url as image_url', 'product.*', 'loai_sp.slug as slug_loai')
+                ->orderBy('id', 'desc');
+        $productList = $sql->paginate(25);
+        $seo['title'] = $seo['description'] = $seo['keywords'] = "Tìm kiếm sản phẩm theo từ khóa '".$tu_khoa."'";       
+        return view('frontend.cate.search', compact('productList', 'tu_khoa', 'seo'));
     }       
 
-     public function newsDetail(Request $request)
-    {     
-        $id = $request->id;
-
-        $detail = Articles::where( 'id', $id )
-                ->select('id', 'title', 'slug', 'description', 'image_url', 'content', 'meta_id', 'created_at', 'cate_id')
-                ->first();
-        $is_km = $is_news = $is_kn = 0;
-        if( $detail ){           
-
-            $title = trim($detail->meta_title) ? $detail->meta_title : $detail->title;
-
-            $hotArr = Articles::where( ['cate_id' => 1, 'is_hot' => 1] )->where('id', '<>', $id)->orderBy('id', 'desc')->limit(5)->get();
-            $otherArr = Articles::where( ['cate_id' => 1] )->where('id', '<>', $id)->orderBy('id', 'desc')->limit(4)->get();
-            $seo['title'] = $detail->meta_title ? $detail->meta_title : $detail->title;
-            $seo['description'] = $detail->meta_description ? $detail->meta_description : $detail->title;
-            $seo['keywords'] = $detail->meta_keywords ? $detail->meta_keywords : $detail->title;
-            $socialImage = $detail->image_url; 
-            $is_km = $detail->cate_id == 2 ? 1 : 0;
-            $is_news = $detail->cate_id == 1 ? 1 : 0;
-            $is_kn = $detail->cate_id == 4 ? 1 : 0;
-            return view('frontend.news.news-detail', compact('title',  'hotArr', 'detail', 'otherArr', 'seo', 'socialImage', 'is_km', 'is_news', 'is_kn'));
-        }else{
-            return view('erros.404');
-        }
-    }
+    
 }
 
