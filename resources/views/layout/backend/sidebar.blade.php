@@ -46,7 +46,7 @@
         </ul>
       </li>
       @endif
-      <li class="treeview {{ in_array(\Request::route()->getName(), ['articles.index', 'articles.create', 'articles.edit','articles-cate.create', 'articles-cate.index', 'articles-cate.edit']) ? 'active' : '' }}">
+      <!--<li class="treeview {{ in_array(\Request::route()->getName(), ['articles.index', 'articles.create', 'articles.edit','articles-cate.create', 'articles-cate.index', 'articles-cate.edit']) ? 'active' : '' }}">
         <a href="#">
           <i class="fa fa-pencil-square-o"></i> 
           <span>Bài viết</span>
@@ -62,7 +62,7 @@
         @endif    
         </ul>
        
-      </li>      
+      </li>     
         <li {{ in_array(\Request::route()->getName(), ['tag.edit', 'tag.index']) ? "class=active" : "" }}>
           <a href="{{ route('tag.index') }}">
             <i class="fa fa-pencil-square-o"></i> 
@@ -83,7 +83,7 @@
           <i class="fa fa-pencil-square-o"></i> 
           <span>Liên hệ</span>          
         </a>       
-      </li>
+      </li>-->
       @endif
       @if(Auth::user()->role == 3)
       <li {{ in_array(\Request::route()->getName(), ['banner.list', 'banner.edit', 'banner.create']) ? "class=active" : "" }}>
@@ -105,16 +105,17 @@
         <ul class="treeview-menu">
           @if(Auth::user()->role == 3)
         
-          <li {{ \Request::route()->getName() == "settings.index" ? "class=active" : "" }}><a href="{{ route('settings.index') }}"><i class="fa fa-circle-o"></i> Thông tin NhaDat</a></li>
-          <li {{ (in_array(\Request::route()->getName(), ['custom-link.edit', 'custom-link.index', 'custom-link.create']) && isset($block_id) && $block_id == 2 )? "class=active" : "" }}>
+          <li {{ \Request::route()->getName() == "settings.index" ? "class=active" : "" }}><a href="{{ route('settings.index') }}"><i class="fa fa-circle-o"></i> Thông tin Khánh Đạt</a></li>
+          <!--<li {{ (in_array(\Request::route()->getName(), ['custom-link.edit', 'custom-link.index', 'custom-link.create']) && isset($block_id) && $block_id == 2 )? "class=active" : "" }}>
             <a href="{{ route('custom-link.index', ['block_id' => 2 ]) }}">
               <i class="fa fa-circle-o"></i>
               <span>Link Footer</span>         
             </a>       
-          </li>
-          <li {{ \Request::route()->getName() == "info-seo.index" ? "class=active" : "" }}><a href="{{ route('info-seo.index') }}"><i class="fa fa-circle-o"></i> Cài đặt SEO</a></li>
+          </li>-->
+          
+          <!--<li {{ \Request::route()->getName() == "info-seo.index" ? "class=active" : "" }}><a href="{{ route('info-seo.index') }}"><i class="fa fa-circle-o"></i> Cài đặt SEO</a></li>-->
           @endif
-          <li {{ \Request::route()->getName() == "account.index" ? "class=active" : "" }}><a href="{{ route('account.index') }}"><i class="fa fa-circle-o"></i> Users</a></li>          
+          <!--<li {{ \Request::route()->getName() == "account.index" ? "class=active" : "" }}><a href="{{ route('account.index') }}"><i class="fa fa-circle-o"></i> Users</a></li>          -->
         </ul>
       </li>
       @endif
