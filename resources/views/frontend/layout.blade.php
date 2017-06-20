@@ -68,7 +68,7 @@
 				<div class="container">
 					<div class="logo">
 						<a href="{{ route('home') }}">							
-							<h1 style="color:#FFF" >LOGO</h1>
+							<img src="{{ URL::asset('assets/images/logo.png') }}" alt="Logo linh kien khanh dat" style="height:80px">
 						</a>
 					</div>
 					<div class="header-search-box">
