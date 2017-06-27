@@ -45,7 +45,7 @@ Route::group(['namespace' => 'Frontend'], function()
     Route::get('lien-he.html', ['as' => 'contact', 'uses' => 'HomeController@contact']);
     Route::get('bao-gia-ban-si.html', ['as' => 'si', 'uses' => 'HomeController@si']);
     Route::get('{slug}.html', ['as' => 'danh-muc', 'uses' => 'ProductController@cate']);
-
+    Route::post('/send-contact', ['as' => 'send-contact', 'uses' => 'ContactController@store']);
 
 });
 

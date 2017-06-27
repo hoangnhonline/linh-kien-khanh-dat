@@ -181,7 +181,8 @@
 				</div>
 			</section><!-- /block-ftb -->
 		</footer><!-- /footer -->
-
+		<div class="block-add block-call"><a href="tel:0123456789"><i class="fa fa-phone-square"></i>0907227659</a></div><!-- /.block-call -->
+		<div class="block-add block-view-price"><a href="{{ route('si') }}"><i class="fa fa-file"></i> Xem Bảng Giá Sỉ</a></div><!-- /.block-view-price -->
 		<a id="return-to-top" class="td-scroll-up" href="javascript:void(0)">
 			<i class="fa fa-angle-up" aria-hidden="true"></i>
 		</a>

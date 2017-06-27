@@ -1603,3 +1603,34 @@ img {
 .accordion-header.opened .btn-opened:before {
   content: "\f106";
 }
+.block-add {
+  position: fixed;
+  background: #eb2227;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  border-radius: 5px;
+  z-index: 9;
+  display: none;
+}
+.block-add i {
+  margin-right: 5px;
+}
+.block-call {
+  bottom: 5px;
+  left: 50px;
+}
+.block-view-price {
+  bottom: 5px;
+  right: 50px;
+}
+.block-add a {
+  color: #fff;
+}
+.desc-si p{
+  margin-bottom: 10px;
+}
+.desc-si h1{
+  font-size: 28px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
