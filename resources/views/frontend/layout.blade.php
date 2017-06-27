@@ -79,7 +79,7 @@
 			            </form>
 					</div>
 					<div class="header-contact">
-						<p>Tổng đài: <span class="hotline">1900 636 975</span> <span class="time_active">(7:30 - 22:00)</span></p>
+						<p>Hotline: <span class="hotline">0907.227.659</span> <span class="time_active">(7:30 - 22:00)</span></p>
 					</div>
 				</div>
 			</div><!-- /top_header -->
@@ -112,6 +112,7 @@
 							</li>
 							@endforeach							
 							<li><a class="" href="{{ route('si') }}">Báo giá bán sỉ</a></li>
+							<li><a class="" href="{{ route('contact') }}">Liên hệ</a></li>
 						</ul>
 					</div><!-- /.navbar-collapse -->
 		        </div>
@@ -131,10 +132,10 @@
 				<div class="container">
 					<ul class="row">
 						<li class="col-sm-5 col-xs-12 block-contact-ft">
-							<p>Giới thiệu về <a href="#" title="" class="urlweb">KD</a> - Thành viên của IPL</p>
+							<p>CTY TNHH TM XNK Khánh Đạt</p>
 						</li>
 						<li class="col-sm-5 col-xs-12 block-phone-ft">
-							<p>Tổng đài: 1900.1908 - 08.3622.9900 (7:30 - 22:00)</p>
+							<p>Tổng đài: 0907227659 (7:30 - 22:00)</p>
 						</li>
 						<li class="col-sm-2 col-xs-12 box-accordion block-accordion-ft">
 							<p class="accordion-header">
@@ -152,8 +153,8 @@
 							<div class="col-sm-5 col-xs-12">
 								<img src="{{ URL::asset('assets/images/bct.png') }}" alt="Đã đăng ký bộ công thương">
 								<p class="registered-bct">
-									GPĐKKD số 0303217354<br>
-									do sở KHĐT Tp.HCM cấp ngày 25/03/2004
+									GPĐKKD số 0314444704<br>
+									do sở KHĐT Tp.HCM cấp ngày 20/05/2017
 								</p>
 							</div>
 							<div class="col-sm-4 col-xs-12">
@@ -176,7 +177,7 @@
 			</section><!-- /block-ftm -->
 			<section class="container-fluid block-ftb">
 				<div class="container">
-					<p>Linh kiện khánh đạt mở bán tại thành phố Hồ Chí Minh</p>
+					<p>54 Lũy Bán Bích, Phường Tân Thới Hoà, Quận Tân Phú, HCM</p>
 				</div>
 			</section><!-- /block-ftb -->
 		</footer><!-- /footer -->
