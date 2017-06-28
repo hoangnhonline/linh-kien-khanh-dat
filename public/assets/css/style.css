@@ -294,7 +294,7 @@ img {
   color: #252525;
   font-size: 15px;
   position: absolute;
-  top: 2px;
+  top: 5px;
   right: 10px;
   background: transparent;
   border: none;
@@ -1633,4 +1633,13 @@ img {
   font-size: 28px;
   margin-bottom: 20px;
   margin-top: 20px;
+}
+.search-on-mobile {
+  display: none;
+}
+.search-on-mobile input {
+  background: #fff;
+}
+.block-banner {
+  display: none;
 }

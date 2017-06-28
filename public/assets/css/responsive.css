@@ -172,8 +172,14 @@
 	.menu li.parent .carret-down.open:before {
 	  content: "\f0d8";
 	}
+	.navbar-header {
+	    float: right;
+	}
 	.block-add {
 		display: block;
+	}
+	.navbar-toggle {
+		padding: 0 10px;
 	}
 }
 /*----------------
@@ -281,6 +287,22 @@
 	    padding: 0 10px;
 	}
 	.block-productrelate .products .item:nth-child(4n+1) { clear: both; }
+	.search-on-mobile {
+		display: block !important;
+		position: absolute;
+		top: 50%;
+		left: 15px;
+		-ms-transform: translateY(-50%);
+		-webkit-transform: translateY(-50%);
+		transform: translateY(-50%);
+	}
+	.top-header {
+		display: none;
+	}
+	.block-banner {
+		display: block;
+		margin-bottom: 5px;
+	}
 }
 /*----------------
 [Styles for devices(<600px)]
@@ -363,6 +385,10 @@
 	.block-pagination .pagination>li>a,
 	.block-pagination .pagination>li>span {
 	  margin: 0 5px;
+	}
+	.header-search-box.search-on-mobile .mainsearch {
+	    position: relative;
+	    width: 255px;
 	}
 }
 

@@ -63,7 +63,7 @@
 		</section>
 		<!-- preloader -->
 		
-		<header id="header" class="header fixed-header">
+		<header id="header" class="header">
 			<div class="top-header">
 				<div class="container">
 					<div class="logo">
@@ -83,9 +83,19 @@
 					</div>
 				</div>
 			</div><!-- /top_header -->
-			<nav id="mainNav" class="navbar navbar-default navbar-custom">
+			<div class="block-banner">
+				<img src="http://khanhdat.dev/uploads/2017/06/20/banner1-1497939627.jpg" alt="">
+			</div>
+			<nav id="mainNav" class="navbar navbar-default navbar-custom fixed-header">
 		        <div class="container" id="main-menu">
 		        	<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="header-search-box search-on-mobile">
+			        	<form class="form-inline mainsearch"  method="GET" action="{{ route('search') }}">            
+			              <input type="text" autocomplete="off" name="keyword" placeholder="Bạn mua gì hôm nay?" maxlength="50" value="{{ isset($tu_khoa) ? $tu_khoa : "" }}">
+
+			              <button type="submit"><i class="fa fa-search"></i></button>
+			            </form>
+		            </div>
 			        <div class="navbar-header">
 			            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 			              <span class="sr-only">Toggle navigation</span><i class="fa fa-bars"></i>
@@ -135,7 +145,7 @@
 							<p>CTY TNHH TM XNK Khánh Đạt</p>
 						</li>
 						<li class="col-sm-5 col-xs-12 block-phone-ft">
-							<p>Tổng đài: 0907227659 (7:30 - 22:00)</p>
+							<p>Tổng đài: 0909900862 (7:30 - 22:00)</p>
 						</li>
 						<li class="col-sm-2 col-xs-12 box-accordion block-accordion-ft">
 							<p class="accordion-header">
