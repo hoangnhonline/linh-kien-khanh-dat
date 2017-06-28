@@ -84,7 +84,7 @@
 				</div>
 			</div><!-- /top_header -->
 			<div class="block-banner">
-				<img src="http://khanhdat.dev/uploads/2017/06/20/banner1-1497939627.jpg" alt="">
+				<img src="http://linhkienkhanhdat.com/uploads/2017/06/28/bang-hieu-khanh-dat-1498618671.jpg" alt="banner khanh dat">
 			</div>
 			<nav id="mainNav" class="navbar navbar-default navbar-custom fixed-header">
 		        <div class="container" id="main-menu">
