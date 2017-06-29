@@ -16,7 +16,7 @@
 
 				<p>[Xem bản đồ <a href="https://www.google.com/maps/place/54+L%C5%A9y+B%C3%A1n+B%C3%ADch,+T%C3%A2n+Th%E1%BB%9Bi+Ho%C3%A0,+T%C3%A2n+Ph%C3%BA,+H%E1%BB%93+Ch%C3%AD+Minh,+Vi%E1%BB%87t+Nam/@10.7636612,106.630384,17z/data=!3m1!4b1!4m5!3m4!1s0x31752e9c4e3a2189:0x36b565d46cc9e77!8m2!3d10.7636559!4d106.632578" target="_blank" style="color:#A4228E">Google Map</a>]</p>
 
-				<p>Hotline: 0907227659 Zalo 0907227659 (9:00 - 19:00)</p>			
+				<p>Hotline: 0909.900.862 Zalo 0909.900.862 (9:00 - 19:00)</p>			
 
 				<p>Thời gian làm việc: từ 9:00 - 19:00</p>
 
