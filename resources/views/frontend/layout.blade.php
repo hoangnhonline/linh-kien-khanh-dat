@@ -52,6 +52,14 @@
 </head>
 
 <body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.9&appId=567408173358902";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 	<section class="wrapper">
 
 		<section class="loading-container" id="loading">
@@ -150,19 +158,15 @@
 									do sở KHĐT Tp.HCM cấp ngày 20/05/2017
 								</p>
 							</div>
-							<div class="col-sm-4 col-xs-12">
+							<div class="col-sm-3 col-xs-12">
 								<ul class="menu-ft">
 									<li><a href="#" title="">Chính sách giao hàng</a></li>
 									<li><a href="#" title="">7 ngày đổi trả miễn phí</a></li>
 									<li><a href="#" title="">Hướng dẵn mua hàng</a></li>
 								</ul><!-- /menu-ft -->
 							</div>
-							<div class="col-sm-3 col-xs-12">
-								<ul class="menu-ft">
-									<li><a href="#" title="">Tìm trung tâm bảo hành</a></li>
-									<li><a href="contact.html" title="">Liên hệ góp ý</a></li>
-									<li><a href="#" title="">Quy chế chung</a></li>
-								</ul><!-- /menu-ft -->
+							<div class="col-sm-4 col-xs-12">
+								<div class="fb-page" data-href="https://www.facebook.com/Kh%C3%A1nh-%C4%90%E1%BA%A1t-1346456015403634/" data-tabs="timeline" data-height="104" style="width:100%" data-small-header="false" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Kh%C3%A1nh-%C4%90%E1%BA%A1t-1346456015403634/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Kh%C3%A1nh-%C4%90%E1%BA%A1t-1346456015403634/">Khánh Đạt</a></blockquote></div>
 							</div>	
 						</div>
 					</div>
