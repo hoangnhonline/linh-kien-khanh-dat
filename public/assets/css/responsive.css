@@ -181,6 +181,15 @@
 	.navbar-toggle {
 		padding: 0 10px;
 	}
+	.search-on-mobile {
+		display: block !important;
+		position: absolute;
+		top: 50%;
+		left: 15px;
+		-ms-transform: translateY(-50%);
+		-webkit-transform: translateY(-50%);
+		transform: translateY(-50%);
+	}
 }
 /*----------------
 [Styles for devices(>992px)]
@@ -292,6 +301,7 @@
 		position: absolute;
 		top: 50%;
 		left: 15px;
+		right: auto;
 		-ms-transform: translateY(-50%);
 		-webkit-transform: translateY(-50%);
 		transform: translateY(-50%);
@@ -388,7 +398,7 @@
 	}
 	.header-search-box.search-on-mobile .mainsearch {
 	    position: relative;
-	    width: 255px;
+	    width: 235px;
 	}
 }
 

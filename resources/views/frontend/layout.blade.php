@@ -64,27 +64,9 @@
 		<!-- preloader -->
 		
 		<header id="header" class="header">
-			<div class="top-header">
-				<div class="container">
-					<div class="logo">
-						<a href="{{ route('home') }}">							
-							<img src="{{ URL::asset('assets/images/logo.png') }}" alt="Logo linh kien khanh dat" style="height:80px">
-						</a>
-					</div>
-					<div class="header-search-box">
-						<form class="form-inline mainsearch"  method="GET" action="{{ route('search') }}">            
-			              <input type="text" autocomplete="off" name="keyword" placeholder="Bạn mua gì hôm nay?" maxlength="50" value="{{ isset($tu_khoa) ? $tu_khoa : "" }}">
-
-			              <button type="submit"><i class="fa fa-search"></i></button>
-			            </form>
-					</div>
-					<div class="header-contact">
-						<p>Hotline: <span class="hotline">0907.227.659</span> <span class="time_active">(7:30 - 22:00)</span></p>
-					</div>
-				</div>
-			</div><!-- /top_header -->
-			<div class="block-banner">
-				<img src="http://linhkienkhanhdat.com/uploads/2017/06/28/bang-hieu-khanh-dat-1498618671.jpg" alt="banner khanh dat">
+			
+			<div class="block-banner container">
+				<a href="{{ route('home') }}"><img src="http://linhkienkhanhdat.com/uploads/2017/06/28/bang-hieu-khanh-dat-1498618671.jpg" alt="banner khanh dat"></a>
 			</div>
 			<nav id="mainNav" class="navbar navbar-default navbar-custom fixed-header">
 		        <div class="container" id="main-menu">
@@ -109,18 +91,17 @@
 						</div>
 						<ul class="nav navbar-nav navbar-left">
 							<li><a href="{!! route('home') !!}">Trang chủ</a></li>
-							@foreach($loaiSpList as $loaiSp)
-							<li class="level0 @if($cateList[$loaiSp->id]->count() > 0) parent @endif">
-								<a href="{{ route('danh-muc', $loaiSp->slug) }}" title="{!! $loaiSp->name !!}">{!! $loaiSp->name !!}</a>
+							
+							<li class="level0 parent">
+								<a href="" title="Danh mục sản phẩm">Danh mục sản phẩm</a>
 								<ul class="level0 submenu submenu-white">
-									@if($cateList[$loaiSp->id]->count() > 0)
-									@foreach($cateList[$loaiSp->id] as $cate)
-									<li class="level1"><a href="{{ route('danh-muc-con', [$loaiSp->slug, $cate->slug])}}" title="{!! $cate->name !!}">{!! $cate->name !!}</a></li>
+									@foreach($loaiSpList as $loaiSp)
+									<li class="level1"><a href="{{ route('danh-muc', [$loaiSp->slug])}}" title="{!! $loaiSp->name !!}">{!! $loaiSp->name !!}</a></li>
 									@endforeach
-									@endif
+									
 								</ul>
 							</li>
-							@endforeach							
+											
 							<li><a class="" href="{{ route('si') }}">Báo giá bán sỉ</a></li>
 						</ul>
 					</div><!-- /.navbar-collapse -->
@@ -144,7 +125,7 @@
 							<p>CTY TNHH TM XNK Khánh Đạt</p>
 						</li>
 						<li class="col-sm-5 col-xs-12 block-phone-ft">
-							<p>Tổng đài: 0909900862 (7:30 - 22:00)</p>
+							<p>Hotline: <span style="color:#FFF;font-size:20px">0909.900.862</span> (7:30 - 22:00)</p>
 						</li>
 						<li class="col-sm-2 col-xs-12 box-accordion block-accordion-ft">
 							<p class="accordion-header">
@@ -190,7 +171,7 @@
 				</div>
 			</section><!-- /block-ftb -->
 		</footer><!-- /footer -->
-		<div class="block-add block-call"><a href="tel:0123456789"><i class="fa fa-phone-square"></i>0907227659</a></div><!-- /.block-call -->
+		<div class="block-add block-call"><a href="tel:0909900862"><i class="fa fa-phone-square"></i>0909.900.862</a></div><!-- /.block-call -->
 		<div class="block-add block-view-price"><a href="{{ route('si') }}"><i class="fa fa-file"></i> Xem Bảng Giá Sỉ</a></div><!-- /.block-view-price -->
 		<a id="return-to-top" class="td-scroll-up" href="javascript:void(0)">
 			<i class="fa fa-angle-up" aria-hidden="true"></i>
