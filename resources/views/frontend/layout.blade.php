@@ -85,10 +85,7 @@
 					</div>
 
 					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse menu" id="bs-example-navbar-collapse-1">
-						<div class="text-center logo-menu-res">
-							<a title="Logo" href="index.html"><img src="{{ URL::asset('assets/images/logo.png') }}" alt="Logo"></a>
-						</div>
+					<div class="collapse navbar-collapse menu" id="bs-example-navbar-collapse-1">						
 						<ul class="nav navbar-nav navbar-left">
 							<li><a href="{!! route('home') !!}">Trang chủ</a></li>							
 							<li class="level0 parent">
