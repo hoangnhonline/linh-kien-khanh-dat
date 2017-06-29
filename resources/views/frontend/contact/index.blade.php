@@ -1,5 +1,4 @@
-@extends('frontend.layout')
-
+@extends('frontend.layout') 
 @include('frontend.partials.meta')
 @section('content')
 <article class="block block-breadcrumb">
@@ -9,90 +8,24 @@
   </ul>
 </article><!-- /block-breadcrumb -->
 <section class="block-content">
-        <div class="block-common">  
-        <div id="contact" class="page-content page-contact">
-            <div id="message-box-conact"></div>
-            <div class="row">
-                
-                <div class="col-sm-8">	
-                    <h3 class="page-heading">
-                        <span class="page-heading-title2">THÔNG TIN Liên hệ</span>
-                    </h3>               
-                    <div class="content">
-                        <h4>NhaDat - Chợ Công Nghệ Giá Sỉ</h4>                        
-                        <p>Hotline: <span class="tel">1900 63 69 75</span></p>                        
-                        <p>Email: <a href="mailto:muahang@icho.vn">muahang@icho.vn</a></p>
-                    </div>
-                    @if(Session::has('message'))
-	                <p class="alert alert-info" >{{ Session::get('message') }}</p>
-	                @endif
-                    <form method="POST" action="{{ route('send-contact') }}">
-                     @if (count($errors) > 0)
-	                  <div class="alert alert-danger">
-	                    <ul>	                       
-	                        <li>Vui lòng nhập đầy đủ thông tin.</li>	                        
-	                    </ul>
-	                  </div>
-	                @endif	
-                    <div class="contact-form-box">
-                        <div class="form-selector">                            
-                            <textarea style="font-size:14px" class="form-control input-sm" rows="8" id="content" name="content" placeholder="Nhập nội dung bạn muốn liên hệ hoặc góp ý với NhaDat">{{ old('content') }}</textarea>
+    <div class="block-common block-sale-products">      
+        <div class="products" >
+            <div class="desc-si" style="text-align:left; font-size:18px">
+                <h1  style="color:#A4228E">CTY TNHH TM XNK KHÁNH ĐẠT</span></h1>
+                <p><span class="fa fa-map-marker"></span> 54 Lũy Bán Bích, Phường Tân Thới Hoà, Quận Tân Phú, HCM</p>
 
-                        </div>
-                        <input type="hidden" name="type" value="1">                        
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <div class="form-selector col-md-4" style="padding-left:0px;padding-top:7px;height:45px">
-                            <input type="radio" name="gender" value="1" id="gender1" checked="checked"> <label for="gender1">Anh</label>
-                            &nbsp;&nbsp;&nbsp;&nbsp;
-                            <input type="radio" name="gender" value="2" id="gender2"> <label for="gender2">Chị</label>
-                        </div>
-                        <div class="form-selector col-md-8" style="padding-right:0px;height:45px">                            
-                            <input type="text" placeholder="Họ và tên" class="form-control input-sm" id="full_name" name="full_name"  value="{{ old('full_name') }}" style="height:35px" />
-                        </div>
-                        <div class="form-selector col-md-4" style="padding-left:0px;height:45px">                            
-                            <input type="text" placeholder="Số điện thoại" class="form-control input-sm" id="phone" name="phone" value="{{ old('phone') }}" style="height:35px"/>
-                        </div>   
-                        <div class="form-selector col-md-8" style="padding-right:0px;height:45px">                           
-                            <input type="email" placeholder="Email của bạn" class="form-control input-sm" id="email" name="email" value="{{ old('email') }}" style="height:35px"/>
-                        </div>
-                        <div class="form-selector">
-                            <button type="submit" id="btn-send-contact" class="btn">GỬI LIÊN HỆ</button>
-                        </div>
-                    </div>
-                    </form>
-                </div>
-                <div class="col-xs-12 col-sm-4" id="contact_form_map">                    
-                    <div class="row">
-                        <div class="col-sm-12" style="margin-bottom:20px">
-                            <div class="introduce-title">Thông tin Công ty</div>
-                            <ul id="introduce-company"  class="introduce-list">
-                                <li><a href="{{ route('danh-muc', 'gioi-thieu') }}">Giới thiệu</a></li>
-                                <li><a href="{{ route('chuong-trinh-khuyen-mai') }}">Khuyến mãi</a></li>
-                                <li><a href="{{ route('contact') }}">Liên hệ</a></li>
-                            </ul>
-                        </div>                       
-                        <div class="col-sm-12">
-                            <div class="introduce-title">CHÍNH SÁCH</div>
-                            <ul id = "introduce-support"  class="introduce-list">
-                                <li><a href="{{ route('danh-muc', 'bao-mat-thong-tin') }}">Bảo mật thông tin</a></li>
-                                <li><a href="{{ route('danh-muc', 'thanh-toan') }}">Phương thức thanh toán</a></li>
-                                <li><a href="{{ route('danh-muc', 'hinh-thuc-van-chuyen') }}">Hình thức vận chuyển</a></li>
-                                <li><a href="{{ route('danh-muc', 'chinh-sach-bao-hanh') }}">Chính sách bảo hành</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <p><span class="fa fa-phone"></span> 0909.900.862 Zalo 0907.227.659 (9:00 - 19:00)</p>           
+
+                <p><span class="fa fa-clock-o"></span> Thời gian làm việc: từ 9:00 - 19:00</p>
+
+                <p><span class="fa fa-clock-o"></span> Nhận và trả bảo hành từ 14:00 - 19:00</p>
+                
+                <br>
+            </div>
+            <div class="table-responsive">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.6211122133586!2d106.63038931480061!3d10.763655892330197!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752e9c4e3a2189%3A0x36b565d46cc9e77!2zNTQgTMWpeSBCw6FuIELDrWNoLCBUw6JuIFRo4bubaSBIb8OgLCBUw6JuIFBow7osIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1498721798944" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
             </div>
         </div>
-
+    </div>
 </section>
-<style type="text/css">
-    span.required{
-        color:red;
-    }
-    .contact-form-box input {
-        font-size: 14px;
-        border: 1px solid #ccc
-    }
-</style>
 @endsection

@@ -103,6 +103,7 @@
 							</li>
 											
 							<li><a class="" href="{{ route('si') }}">Báo giá bán sỉ</a></li>
+							<li><a href="{{ route('contact') }}">Liên hệ</a></li>
 						</ul>
 					</div><!-- /.navbar-collapse -->
 		        </div>
