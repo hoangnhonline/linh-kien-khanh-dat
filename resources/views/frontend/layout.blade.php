@@ -90,18 +90,23 @@
 							<a title="Logo" href="index.html"><img src="{{ URL::asset('assets/images/logo.png') }}" alt="Logo"></a>
 						</div>
 						<ul class="nav navbar-nav navbar-left">
-							<li><a href="{!! route('home') !!}">Trang chủ</a></li>
-							
+							<li><a href="{!! route('home') !!}">Trang chủ</a></li>							
 							<li class="level0 parent">
 								<a href="" title="Danh mục sản phẩm">Danh mục sản phẩm</a>
 								<ul class="level0 submenu submenu-white">
 									@foreach($loaiSpList as $loaiSp)
-									<li class="level1"><a href="{{ route('danh-muc', [$loaiSp->slug])}}" title="{!! $loaiSp->name !!}">{!! $loaiSp->name !!}</a></li>
-									@endforeach
-									
+									<li class="level1 @if($cateList[$loaiSp->id]->count() > 0) parent @endif"><a href="{{ route('danh-muc', [$loaiSp->slug])}}" title="{!! $loaiSp->name !!}">{!! $loaiSp->name !!}</a>
+										@if($cateList[$loaiSp->id]->count() > 0)
+										<ul class="level1 submenu submenu-white">
+											@foreach($cateList[$loaiSp->id] as $cate)
+											<li><a href="{{ route('danh-muc-con', [$loaiSp->slug, $cate->slug ]) }}">{{ $cate->name }}</a></li>
+											@endforeach
+										</ul>
+										@endif
+									</li>
+									@endforeach									
 								</ul>
-							</li>
-											
+							</li>											
 							<li><a class="" href="{{ route('si') }}">Báo giá bán sỉ</a></li>
 							<li><a href="{{ route('contact') }}">Liên hệ</a></li>
 						</ul>
