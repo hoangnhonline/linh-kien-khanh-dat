@@ -16,6 +16,9 @@
 				@foreach( $productList as $product )
 				<li class="col-md-2 col-sm-4 col-xs-4">
 					<div class="item">
+						@if($product->is_sale == 1)
+				        <p class="trapezoid">sale</p>
+				        @endif
 						<!--<p class="trapezoid">-18%</p>-->
 						<div class="pro-thumb">
 							<a href="{{ route('chi-tiet', [ $product->slug_loai, $product->slug, $product->id] ) }}" title="{!! $product->name !!}">
@@ -26,11 +29,15 @@
 							<h2 class="pro-title"><a href="{{ route('chi-tiet', [$product->slug_loai, $product->slug, $product->id] ) }}" title="{!! $product->name !!}">{!! $product->name !!}</a></h2>
 							<div class="price-products">
 								<p class="pro-price">
-									@if(is_numeric($product->price))
-					                	{!! number_format($product->price) !!}
-					              	@else
-					                	{!! $product->price !!}
-					              	@endif
+									@if($product->in_stock == 1)
+						              @if(is_numeric($product->price))
+						                {!! number_format($product->price) !!}
+						              @else
+						                {!! $product->price !!}
+						              @endif
+						              @else
+						                Tạm hết hàng
+						              @endif
 								</p>
 								<!-- <p class="pro-sale"><del>7,940,000đ</del></p> -->
 							</div>							
