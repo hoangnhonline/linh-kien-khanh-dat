@@ -5,7 +5,7 @@
     <h2 class="title">Sản phẩm mới</h2>   
   </div>
   <div class="block-content">
-    <ul class="owl-carousel owl-theme owl-style2" data-autoplay="true" data-nav="true" data-dots="false" data-margin="30" data-responsive='{"0":{"items":1},"480":{"items":2},"600":{"items":2},"768":{"items":3},"800":{"items":3},"992":{"items":6}}'>
+    <ul class="owl-carousel owl-theme owl-style2" data-loop="true" data-autoplay="true" data-nav="true" data-dots="false" data-margin="30" data-responsive='{"0":{"items":1},"480":{"items":2},"600":{"items":2},"768":{"items":3},"800":{"items":3},"992":{"items":6}}'>
       
       @foreach($newList as $product)
       <li class="item">
