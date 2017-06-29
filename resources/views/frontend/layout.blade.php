@@ -1,6 +1,3 @@
-<?php 
-var_dump($is_web);die;
-?>
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html dir="ltr" lang="en-US" class="no-js ie ie6 lte7 lte8 lte9"><![endif]-->
 <!--[if IE 7 ]><html dir="ltr" lang="en-US" class="no-js ie ie7 lte7 lte8 lte9"><![endif]-->
