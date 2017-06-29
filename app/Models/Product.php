@@ -39,6 +39,7 @@ class Product extends Model  {
                             'status', 
                             'in_stock', 
                             'is_hot', 
+                            'is_sale',
                             'display_order',
                             'meta_id',                            
                             'created_user',
