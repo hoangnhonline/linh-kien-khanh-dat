@@ -42,16 +42,16 @@ class ProductController extends Controller
             $query->where('product.loai_id', $loai_id);
             $cateArr = Cate::where('loai_id', $loai_id)->orderBy('display_order', 'desc')->get();        
         }
-        if( $cate_id ){
+        if( $cate_id){
             $query->where('product.cate_id', $cate_id);
         }
         if( $is_hot ){
             $query->where('product.is_hot', $is_hot);
         }
-        if( $is_hot ){
+        if( $is_sale){
             $query->where('product.is_sale', $is_sale);
         }
-        if( $is_hot ){
+        if( $in_stock ){
             $query->where('product.in_stock', $in_stock);
         }
         

@@ -21,7 +21,7 @@
 						<!--<p class="trapezoid">-18%</p>-->
 						<div class="pro-thumb">
 							<a href="{{ route('chi-tiet', [ $product->slug_loai, $product->slug, $product->id] ) }}" title="{!! $product->name !!}">
-								<img src="{{ Helper::showImage($product->image_url) }}" alt="{!! $product->name !!}">
+								<img src="{{ Helper::showImage($product->image_url) }}" alt="{!! $product->name !!}" data-image-tooltip="{{ Helper::showImage($product->image_url) }}">
 							</a>
 						</div>
 						<div class="pro-info">

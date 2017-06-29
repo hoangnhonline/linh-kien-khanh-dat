@@ -59,7 +59,7 @@
               <label class="radio-inline"><input type="radio" {{ $arrSearch['status'] == 0 ? "checked" : "" }} name="status" value="0">Ẩn</label>              
             </div>-->
             <div class="form-group">
-              <label><input type="checkbox" name="is_hot" value="1" {{ $arrSearch['is_hot'] == 1 ? "checked" : "" }}> HOT</label>              
+              <label><input type="checkbox" name="is_hot" value="1" {{ $arrSearch['is_hot'] == 1 ? "checked" : "" }}> MỚI</label>              
             </div>
             <div class="form-group">
               <label><input type="checkbox" name="is_sale" value="1" {{ $arrSearch['is_sale'] == 1 ? "checked" : "" }}> SALE</label>              

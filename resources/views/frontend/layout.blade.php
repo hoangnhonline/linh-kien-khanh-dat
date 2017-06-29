@@ -188,8 +188,15 @@
 	<script src="{{ URL::asset('assets/vendor/owl.carousel/owl.carousel.min.js') }}"></script>
 	<!-- sticky -->
 	<script src="{{ URL::asset('assets/vendor/sticky/jquery.sticky.js') }}"></script>
-	<!-- Js Common -->
+	<!-- Js Common -->	
+	<script src="{{ URL::asset('assets/js/image-tooltip.js') }}"></script>
 	<script src="{{ URL::asset('assets/js/common.js') }}"></script>
 	@yield('javascript_page')
+	<script type="text/javascript">
+		$(document).ready(function () {
+		  $('.pro-thumb img').imageTooltip();
+		});
+
+	</script>
 </body>
 </html>

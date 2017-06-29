@@ -42,7 +42,13 @@ class HomeController extends Controller
             $totalArr[$loaiSp->id] = $query->count();
             $productArr[$loaiSp->id] = $query->limit(15)->get();
          }
-        
+        $newList = Product::where('product.slug', '<>', '')
+                    ->where('product.status', 1)
+                    ->where('product.is_hot', 1)                    
+                    ->leftJoin('product_img', 'product_img.id', '=','product.thumbnail_id')            
+                    ->join('loai_sp', 'loai_sp.id', '=','product.loai_id')      
+                    ->select('product_img.image_url as image_url', 'product.*', 'loai_sp.slug as slug_loai')                              
+                    ->orderBy('product.id', 'desc')->limit(20)->get();
         $settingArr = Settings::whereRaw('1')->lists('value', 'name');
         $seo = $settingArr;
         $seo['title'] = $settingArr['site_title'];
@@ -50,7 +56,7 @@ class HomeController extends Controller
         $seo['keywords'] = $settingArr['site_keywords'];
         $socialImage = $settingArr['banner'];                
 
-        return view('frontend.home.index', compact('bannerArr', 'articlesArr', 'socialImage', 'seo', 'productArr', 'totalArr'));
+        return view('frontend.home.index', compact('bannerArr', 'articlesArr', 'socialImage', 'seo', 'productArr', 'totalArr', 'newList'));
 
     }    
    

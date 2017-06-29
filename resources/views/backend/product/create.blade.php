@@ -79,7 +79,7 @@
                         
                         <div class="col-md-4 none-padding">
                           <div class="checkbox">
-                              <label><input type="checkbox" name="is_hot" value="1"> Sản phẩm HOT </label>
+                              <label><input type="checkbox" name="is_hot" value="1"> Sản phẩm mới </label>
                           </div>                          
                         </div>
                         <div class="col-md-4 none-padding pleft-5">
