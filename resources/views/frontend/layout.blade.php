@@ -1,4 +1,7 @@
-	<!DOCTYPE html>
+<?php 
+var_dump($is_web);die;
+?>
+<!DOCTYPE html>
 <!--[if lt IE 7 ]><html dir="ltr" lang="en-US" class="no-js ie ie6 lte7 lte8 lte9"><![endif]-->
 <!--[if IE 7 ]><html dir="ltr" lang="en-US" class="no-js ie ie7 lte7 lte8 lte9"><![endif]-->
 <!--[if IE 8 ]><html dir="ltr" lang="en-US" class="no-js ie ie8 lte8 lte9"><![endif]-->
@@ -189,14 +192,18 @@
 	<!-- sticky -->
 	<script src="{{ URL::asset('assets/vendor/sticky/jquery.sticky.js') }}"></script>
 	<!-- Js Common -->	
+	@if($is_web)
 	<script src="{{ URL::asset('assets/js/image-tooltip.js') }}"></script>
+	@endif
 	<script src="{{ URL::asset('assets/js/common.js') }}"></script>
 	@yield('javascript_page')
+	@if($is_web)
 	<script type="text/javascript">
 		$(document).ready(function () {
 		  $('.pro-thumb img').imageTooltip();
 		});
 
 	</script>
+	@endif
 </body>
 </html>
