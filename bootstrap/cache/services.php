@@ -32,6 +32,7 @@
     28 => 'SammyK\\LaravelFacebookSdk\\LaravelFacebookSdkServiceProvider',
     29 => 'Intervention\\Image\\ImageServiceProvider',
     30 => 'Maatwebsite\\Excel\\ExcelServiceProvider',
+    31 => 'Jenssegers\\Agent\\AgentServiceProvider',
   ),
   'eager' => 
   array (
@@ -52,6 +53,7 @@
     14 => 'SammyK\\LaravelFacebookSdk\\LaravelFacebookSdkServiceProvider',
     15 => 'Intervention\\Image\\ImageServiceProvider',
     16 => 'Maatwebsite\\Excel\\ExcelServiceProvider',
+    17 => 'Jenssegers\\Agent\\AgentServiceProvider',
   ),
   'deferred' => 
   array (
