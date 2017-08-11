@@ -91,10 +91,10 @@
 									<div class="price-products">
 										
 										<p class="pro-price">
-											@if(is_numeric($detail->price))
-							                	{!! number_format($detail->price) !!}
+											@if(is_numeric($product->price))
+							                	{!! number_format($product->price) !!}
 							              	@else
-							                	{!! $detail->price !!}
+							                	{!! $product->price !!}
 							              	@endif
 										</p>
 										
