@@ -49,16 +49,17 @@ class DetailController extends Controller
         
         if( $detail->meta_id > 0){
            $meta = MetaData::find( $detail->meta_id )->toArray();
-           $seo['title'] = $meta['title'] != '' ? $meta['title'] : $detail->title;
-           $seo['description'] = $meta['description'] != '' ? $meta['description'] : $detail->title;
-           $seo['keywords'] = $meta['keywords'] != '' ? $meta['keywords'] : $detail->title;
+           $seo['title'] = $meta['title'] != '' ? $meta['title'] : $detail->name;
+           $seo['description'] = $meta['description'] != '' ? $meta['description'] : $detail->name;
+           $seo['keywords'] = $meta['keywords'] != '' ? $meta['keywords'] : $detail->name;
         }else{
-            $seo['title'] = $seo['description'] = $seo['keywords'] = $detail->title;
+            $seo['title'] = $seo['description'] = $seo['keywords'] = $detail->name;
         }               
         
         if($detail->thumbnail_id > 0){
             $socialImage = ProductImg::find($detail->thumbnail_id)->image_url;
         }
+        
         $otherList = Product::where('product.slug', '<>', '')                  
                     ->where('product.loai_id', '<>', $detail->loai_id)
                     ->leftJoin('product_img', 'product_img.id', '=','product.thumbnail_id')            
