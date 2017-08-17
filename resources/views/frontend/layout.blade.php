@@ -62,13 +62,13 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 	<section class="wrapper">
 
-		<section class="loading-container" id="loading">
+		<!-- <section class="loading-container" id="loading">
 		    <div class="loading-inner">
 		      <span class="loading-1"></span>
 		      <span class="loading-2"></span>
 		      <span class="loading-3"></span>
 		    </div>
-		</section>
+		</section> -->
 		<!-- preloader -->
 		
 		<header id="header" class="header">
